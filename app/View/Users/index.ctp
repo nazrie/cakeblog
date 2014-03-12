@@ -14,14 +14,29 @@
 	
 	<tr>	
 		<td><?php echo $user ['User']['id']; ?></td>
-		<td><?php echo $this->Html->link($user['User']['password'],
+		<td><?php echo $this->Html->link($user['User']['username'],
 			array('Controller'=> 'users', 'action' => 'add', $user['User']['id'])); ?>
 		</td>
-		
+				
 		<td><?php echo $user ['User']['password']; ?></td>
 		<td><?php echo $user ['User']['role']; ?></td>
 		<td><?php echo $user ['User']['created']; ?></td>
+		
+		<td> <?php echo $this->Form->postLink('Delete',
+            array('action' => 'delete', $user['User']['id']),
+            array('confirm' => 'Are you sure?')); ?>
+        </td>
+        
+        <td> <?php echo $this->Html->link('Edit',
+            array('action' => 'edit', $user['User']['id']),
+            array('confirm' => 'Are you sure?')); ?>
+        </td>
+        
+        <td><?php echo $this->Html->link ('Add User',
+			array('Controller'=> 'users', 'action' => 'add')); ?></td>
 	</tr>
+	
+	
 	
 <?php endforeach; ?>
 
